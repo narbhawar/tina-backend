@@ -36,7 +36,7 @@ def memory_summary(user_id: str):
     if not chats:
         return {"user_id": user_id, "summary": "No chats this week."}
     transcript = "\n".join([f"You: {c['message']}\nTina: {c['reply']}" for c in chats])
-    prompt = "Summarize this conversation into a memory Tina would remember:\n" + transcriptr:"
+    prompt = "Summarize this conversation into a memory Tina would remember:\n" + transcriptr
     gpt_response = openai.ChatCompletion.create(
         model="gpt-4",
         messages=[{"role": "user", "content": prompt}],
